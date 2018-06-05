@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        Log.i("CURRENT ITEM",viewPager.getCurrentItem()+"");
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -70,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
     private List<Fragment> getFragmentList() {
         List<Fragment> fragmentList = new ArrayList<>();
         Fragment1 fragment1 = new Fragment1();
+
+        ArrayList<String> linkListesi = new ArrayList<>();
+        linkListesi.add("http://www.google.com");
+        linkListesi.add("http://www.google1.com");
+        linkListesi.add("http://www.google2.com");
+        linkListesi.add("http://www.google3.com");
+
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList("linkListesi",linkListesi);
+        fragment1.setArguments(bundle);
 
         Fragment2 fragment2 = new Fragment2();
 
